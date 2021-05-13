@@ -71,79 +71,77 @@ class _StartpageState extends State<Startpage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget> [
 
-             SizedBox(height: 70),
+            SizedBox(height: 70),
             Container(
               height: 80,
               width: 400,
-              
-               child: Container(
                  
-                 child: RaisedButton(
+                 child: RaisedButton.icon(
+                   
+                   onPressed: () {},
+                   icon: Icon(Icons.phone, size: 30),
                    color: Colors.blue[100],
-
-                   child: Text('Telefonieren'),
-                    onPressed:() {
+                   label: Text(
+                     "Telefonieren", textScaleFactor: 1.5,
+                      )
+                    
+                   
+                    
+                ),       
+                   /* onPressed:() {
                         Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => Nachrichten()),
-                        ); 
+                        ); */
 
-                     /*tileColor: Colors.blue[100] ,
-                     title: Text('Telefonieren'),
-                     trailing: Icon(Icons.call),*/
                      
-                     /*onTap: () {
-                        Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Nachrichten()),
-                        );  }*/
-                ),      
-               ),
-            ),
+                     
+                  
+                ), 
+              SizedBox(height: 20),     
+              Container(
+              height: 80,
+              width: 400,
+                 
+                  child: RaisedButton.icon(
+                   
+                   onPressed: () {},
+                   icon: Icon(Icons.message, size: 30),
+                   color: Colors.blue[100],
+                   label: Text(
+                     "Nachrichten", textScaleFactor: 1.5,
+                      )
+                    
+                   
+                    
+                ),       
+              ),
             SizedBox(height: 20),
-             Container(
+            Container(
               height: 80,
               width: 400,
-           
-               child: Center(
-                 child: ListTile(
-                     tileColor: Colors.blue[100] ,
-                     title: Text('Nachrichten'),
-                     
-                     trailing: Icon(Icons.mail),
-                     /*onTap: () {
-                        Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Nachrichten()),
-                        );
-                      }*/
-                ),      
-               ),
-            ),
-             SizedBox(height: 20),
-             Container(
-              height: 80,
-              width: 400,
+                 
+                 child:  RaisedButton.icon(
+                   
+                   onPressed: () {},
+                   icon: Icon(Icons.contact_support, size: 30),
+                   color: Colors.blue[100],
+                   label: Text(
+                     "Icon Quiz", textScaleFactor: 1.5,
+                      )
+                    
+                   
+                    
+                ),    
+              ),
+            
           
-               child: Center(
-                 child: ListTile(
-                     tileColor: Colors.blue[100] ,
-                     title: Text('Icon Quiz'),
-                     trailing: Icon(Icons.contact_support),
-                     /*onTap: () {
-                        Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Nachrichten()),
-                        );  }*/
-                ),      
-               ),
-            ),
+                
 
 
           ],  
         ),
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+        
         
       ),
      
