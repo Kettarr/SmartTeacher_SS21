@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:smartteacher/widgets/iconquiz.dart';
+
+
+
+
 
 void main() {
   runApp(MyApp());
@@ -78,7 +83,9 @@ class _StartpageState extends State<Startpage> {
                  
                  child: RaisedButton.icon(
                    
-                   onPressed: () {},
+                   onPressed:() {
+                        
+                   },
                    icon: Icon(Icons.phone, size: 30),
                    color: Colors.blue[100],
                    label: Text(
@@ -123,7 +130,12 @@ class _StartpageState extends State<Startpage> {
                  
                  child:  RaisedButton.icon(
                    
-                   onPressed: () {},
+                   onPressed:() {
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => iconquiz()),
+                        );
+                   },
                    icon: Icon(Icons.contact_support, size: 30),
                    color: Colors.blue[100],
                    label: Text(
