@@ -1,13 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smartteacher/model/Question.dart';
+import 'package:smartteacher/widgets/iconquiz.dart';
+import 'package:smartteacher/widgets/quizend.dart';
 
-class questionsite extends StatelessWidget {
+class Questionsite extends StatelessWidget {
 
+  int rightquestions;
   int index;
   List<Question> questionlist;
 
-  questionsite({@required this.questionlist,@required this.index});
+  Questionsite({@required this.questionlist,@required this.index, @required this.rightquestions});
 
   @override
   Widget build(BuildContext context){
@@ -40,9 +43,9 @@ class questionsite extends StatelessWidget {
               height: 80,
               child: RaisedButton(
               color: Colors.blue[100],
-              child: Text(questionlist[index].getAnswer1().getAnswer(), textScaleFactor: 1.5),
+              child: Text(questionlist[index].getAnswerList()[0].getAnswer(), textScaleFactor: 1.5),
               onPressed: () { 
-                if(questionlist[index].getAnswer1().isRight(questionlist[index])){
+                if(questionlist[index].getAnswerList()[0].isRight(questionlist[index])){
                   showDialog(
                     context: context,
                     builder: (context) {
@@ -52,9 +55,14 @@ class questionsite extends StatelessWidget {
                       child: RaisedButton(
                         color: Colors.blue[100],
                         child: Text("Weiter", textScaleFactor: 1.8,),
-                        onPressed: () { 
+                        onPressed: () {
+                        if(index==2){
+                          Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => Quizend(rightanswers: rightquestions,)));
+                        } else{ 
                         Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => questionsite(questionlist : questionlist, index: ++index)));
+                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: ++rightquestions,)));
+                        }
                         },
 
                       ),
@@ -73,9 +81,14 @@ class questionsite extends StatelessWidget {
                       child: RaisedButton(
                         color: Colors.blue[100],
                         child: Text("Weiter", textScaleFactor: 1.8,),
-                        onPressed: () { 
+                        onPressed: () {
+                        if(index==2){
+                          Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => Quizend(rightanswers: rightquestions,)));
+                        } else{ 
                         Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => questionsite(questionlist : questionlist, index: ++index)));
+                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: rightquestions,)));
+                        }
                         },
 
                       ),
@@ -102,9 +115,9 @@ class questionsite extends StatelessWidget {
               height: 80,
               child: RaisedButton(
               color: Colors.blue[100],
-              child: Text(questionlist[index].getAnswer2().getAnswer(), textScaleFactor: 1.5),
+              child: Text(questionlist[index].getAnswerList()[1].getAnswer(), textScaleFactor: 1.5),
                onPressed: () { 
-                if(questionlist[index].getAnswer2().isRight(questionlist[index])){
+                if(questionlist[index].getAnswerList()[1].isRight(questionlist[index])){
                   showDialog(
                     context: context,
                     builder: (context) {
@@ -114,9 +127,14 @@ class questionsite extends StatelessWidget {
                       child: RaisedButton(
                         color: Colors.blue[100],
                         child: Text("Weiter", textScaleFactor: 1.8,),
-                        onPressed: () { 
+                         onPressed: () {
+                        if(index==2){
+                          Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => Quizend(rightanswers: rightquestions,)));
+                        } else{ 
                         Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => questionsite(questionlist : questionlist, index: ++index)));
+                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: ++rightquestions,)));
+                        }
                         },
 
                       ),
@@ -135,9 +153,14 @@ class questionsite extends StatelessWidget {
                       child: RaisedButton(
                         color: Colors.blue[100],
                         child: Text("Weiter", textScaleFactor: 1.8,),
-                        onPressed: () { 
+                         onPressed: () {
+                        if(index==2){
+                          Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => Quizend(rightanswers: rightquestions,)));
+                        } else{ 
                         Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => questionsite(questionlist : questionlist, index: ++index)));
+                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: rightquestions,)));
+                        }
                         },
 
                       ),
@@ -164,9 +187,9 @@ class questionsite extends StatelessWidget {
               height: 80,
               child: RaisedButton(
               color: Colors.blue[100],
-              child: Text(questionlist[index].getAnswer3().getAnswer(), textScaleFactor: 1.5,),
+              child: Text(questionlist[index].getAnswerList()[2].getAnswer(), textScaleFactor: 1.5,),
                 onPressed: () { 
-                if(questionlist[index].getAnswer3().isRight(questionlist[index])){
+                if(questionlist[index].getAnswerList()[2].isRight(questionlist[index])){
                   showDialog(
                     context: context,
                     builder: (context) {
@@ -176,9 +199,14 @@ class questionsite extends StatelessWidget {
                       child: RaisedButton(
                         color: Colors.blue[100],
                         child: Text("Weiter", textScaleFactor: 1.8,),
-                        onPressed: () { 
+                         onPressed: () {
+                        if(index==2){
+                          Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => Quizend(rightanswers: rightquestions,)));
+                        } else{ 
                         Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => questionsite(questionlist : questionlist, index: ++index)));
+                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: ++rightquestions,)));
+                        }
                         },
 
                       ),
@@ -197,9 +225,14 @@ class questionsite extends StatelessWidget {
                       child: RaisedButton(
                         color: Colors.blue[100],
                         child: Text("Weiter", textScaleFactor: 1.8,),
-                        onPressed: () { 
+                       onPressed: () {
+                        if(index==2){
+                          Navigator.push(context, MaterialPageRoute(
+                          builder: (context) =>Quizend(rightanswers: rightquestions,)));
+                        } else{ 
                         Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => questionsite(questionlist : questionlist, index: ++index)));
+                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: rightquestions,)));
+                        }
                         },
 
                       ),
