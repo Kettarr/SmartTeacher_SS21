@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smartteacher/model/Begriffserklaerung.dart';
 import 'package:smartteacher/widgets/iconquiz.dart';
 import 'package:smartteacher/widgets/menu.dart';
 
@@ -121,12 +122,6 @@ class _StartpageState extends State<Startpage> {
                    
                     
                 ),       
-                   /* onPressed:() {
-                        Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Nachrichten()),
-                        ); */
-
                      
                      
                   
@@ -177,7 +172,29 @@ class _StartpageState extends State<Startpage> {
                     
                 ),    
               ),
-            
+               SizedBox(height: 20),     
+              Container(
+              height: 80,
+              width: 400,
+                 
+                  child: RaisedButton(
+                   
+                   onPressed: () {
+                     Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Begriffserklaerung()),
+                     );
+                   },
+                   
+                   color: Colors.blue[100],
+                   child: Text(
+                     "Begriffserklärung", textScaleFactor: 1.5,
+                      )
+                    
+                   
+                    
+                ),       
+              ),
           
                 
 
