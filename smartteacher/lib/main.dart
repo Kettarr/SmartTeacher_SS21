@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smartteacher/widgets/iconquiz.dart';
 
+import 'model/Nachrichten.dart';
+
 
 
 
@@ -112,7 +114,12 @@ class _StartpageState extends State<Startpage> {
                  
                   child: RaisedButton.icon(
                    
-                   onPressed: () {},
+                   onPressed: () {
+                     Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Nachrichten()),
+                     );
+                   },
                    icon: Icon(Icons.message, size: 30),
                    color: Colors.blue[100],
                    label: Text(
@@ -133,7 +140,7 @@ class _StartpageState extends State<Startpage> {
                    onPressed:() {
                         Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => iconquiz()),
+                        MaterialPageRoute(builder: (context) => Iconquiz()),
                         );
                    },
                    icon: Icon(Icons.contact_support, size: 30),

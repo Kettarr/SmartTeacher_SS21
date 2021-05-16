@@ -21,6 +21,8 @@ List<Answer> getAnswerList(){
   Answer answer7 = new Answer(answer: "Suche", id: 6);
   Answer answer8 = new Answer(answer: "Hinzufügen", id: 7);
   Answer answer9 = new Answer(answer: "Favoriten", id: 8);
+  Answer answer10 = new Answer(answer: "Löschen", id: 9);
+  Answer answer11 = new Answer(answer: "WhatsApp", id: 10);
 
 
 
@@ -35,6 +37,8 @@ List<Answer> getAnswerList(){
   answerlist.add(answer7);
   answerlist.add(answer8);
   answerlist.add(answer9);
+  answerlist.add(answer10);
+  answerlist.add(answer11);
 
   return answerlist;
 
@@ -53,7 +57,8 @@ List<Question> getQuestionList(){
   Question q6 = new Question(icon: Icon(Icons.wifi, size: 70,),answerlist: [], question: "Was bedeutet dieses Icon?", id: 5);
   Question q7 = new Question(icon: Icon(Icons.search, size: 70,),answerlist: [], question: "Was bedeutet dieses Icon?", id: 6);
   Question q8 = new Question(icon: Icon(Icons.add, size: 70,),answerlist: [], question: "Was bedeutet dieses Icon?", id: 7);
-  Question q9 = new Question(icon: Icon(Icons.favorite, size: 70,),answerlist: [], question: "Was bedeutet dieses Icon?", id: 8);
+  Question q9 = new Question(icon: Icon(Icons.star, size: 70,),answerlist: [], question: "Was bedeutet dieses Icon?", id: 8);
+  Question q10 = new Question(icon: Icon(Icons.delete, size: 70,),answerlist: [], question: "Was bedeutet dieses Icon?", id: 9);
  
   returnlist.add(q1);
   returnlist.add(q2);
@@ -64,24 +69,30 @@ List<Question> getQuestionList(){
   returnlist.add(q7);
   returnlist.add(q8);
   returnlist.add(q9);
+  returnlist.add(q10);
 
 
 
   return returnlist;
 }
 
-Answer getRightAnswer(Question q, List<Answer> answerlist){
-  Answer returnanswer;
+
+//return rightanswer for given question
+int getRightAnswer(Question q, List<Answer> answerlist){
+  int dummyreturn = -1;
   for(int i= 0; i<answerlist.length; i++){
-    if(q.getID()==answerlist[i].id)
-      returnanswer = answerlist[i];
+    if(q.getID()==answerlist[i].id){
+     
+      return i;
+     
+    }
   }
 
-  print("question: "+q.id.toString()+" returnanswer: "+returnanswer.id.toString());
-
-  return returnanswer;
+  print("getrightanswerfail");
+  return dummyreturn;
 }
 
+//randomizes answers and questions
 List<Question> getRandomThreeQuestions(){
    var random = new Random();
 
@@ -91,22 +102,34 @@ List<Question> getRandomThreeQuestions(){
   
  
   for(int i=0; i<3; i++){
-    returnlist.add(allquestions[random.nextInt(allquestions.length)]);
+    int randint = random.nextInt(allquestions.length);
+    returnlist.add(allquestions[randint]);
+    allquestions.removeAt(randint);
   }
  
-  for(int i= 0; i<returnlist.length; i++){
-      returnlist[i].answerlist.add(getRightAnswer(returnlist[i], allanswers));
+    for(int i= 0; i<returnlist.length; i++){
+      int rightanswerindex = getRightAnswer(returnlist[i], allanswers);
+      print("aindex "+rightanswerindex.toString());
+      returnlist[i].answerlist.add(allanswers[rightanswerindex]);
+      allanswers.removeAt(rightanswerindex);
+    }
+
+    for(int i= 0; i<returnlist.length; i++){
       while(returnlist[i].answerlist.length<3){
         if(random.nextBool()){
-          returnlist[i].answerlist.add(allanswers[random.nextInt((allanswers.length))]);
+          int randint = random.nextInt(allanswers.length);
+          returnlist[i].answerlist.add(allanswers[randint]);
+          allanswers.removeAt(randint);
         }else{
-           returnlist[i].answerlist.insert(0, allanswers[random.nextInt((allanswers.length))]);
+          int randint = random.nextInt(allanswers.length);
+          returnlist[i].answerlist.insert(0, allanswers[randint]);
+          allanswers.removeAt(randint);
         }
         print(returnlist.length.toString());
      }
     }
   
-  print('getsttoreturn');
+  
 
  
   return returnlist;

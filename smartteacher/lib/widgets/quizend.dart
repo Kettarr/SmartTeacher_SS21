@@ -28,12 +28,13 @@ class Quizend extends StatelessWidget{
             SizedBox(height: 70),
             Container(
             margin: const EdgeInsets.all(15),
-            child: Text("Sie haben "+rightanswers.toString()+" von 3 korrekt beantwortet.",
-            textScaleFactor: 1.5),
+            child: Text("Sie haben "+rightanswers.toString()+" von 3 Fragen korrekt beantwortet.",
+            textScaleFactor: 1.5, textAlign: TextAlign.center,),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 80),
             RaisedButton(
               child: Text("Nochmal versuchen!", textScaleFactor: 1.5,),
+              color: Colors.blue[100],
               onPressed: () {
                  Navigator.push(context, MaterialPageRoute(
                           builder: (context) => Iconquiz()));
@@ -43,6 +44,7 @@ class Quizend extends StatelessWidget{
             SizedBox(height: 30),
             RaisedButton(
               child: Text("Zurück zur Startseite", textScaleFactor: 1.5,),
+              color: Colors.blue[100],
               onPressed: () {
                  Navigator.push(context, MaterialPageRoute(
                           builder: (context) => MyApp()));

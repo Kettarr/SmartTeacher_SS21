@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smartteacher/model/Question.dart';
-import 'package:smartteacher/widgets/iconquiz.dart';
 import 'package:smartteacher/widgets/quizend.dart';
 
 class Questionsite extends StatelessWidget {
@@ -58,7 +57,7 @@ class Questionsite extends StatelessWidget {
                         onPressed: () {
                         if(index==2){
                           Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => Quizend(rightanswers: rightquestions,)));
+                          builder: (context) => Quizend(rightanswers: ++rightquestions,)));
                         } else{ 
                         Navigator.push(context, MaterialPageRoute(
                         builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: ++rightquestions,)));
@@ -130,7 +129,7 @@ class Questionsite extends StatelessWidget {
                          onPressed: () {
                         if(index==2){
                           Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => Quizend(rightanswers: rightquestions,)));
+                          builder: (context) => Quizend(rightanswers: ++rightquestions,)));
                         } else{ 
                         Navigator.push(context, MaterialPageRoute(
                         builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: ++rightquestions,)));
@@ -202,7 +201,7 @@ class Questionsite extends StatelessWidget {
                          onPressed: () {
                         if(index==2){
                           Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => Quizend(rightanswers: rightquestions,)));
+                          builder: (context) => Quizend(rightanswers: ++rightquestions,)));
                         } else{ 
                         Navigator.push(context, MaterialPageRoute(
                         builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: ++rightquestions,)));
