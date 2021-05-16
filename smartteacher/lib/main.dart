@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Smart Teacher',
+      title: 'Smart Phone Teacher',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -72,7 +72,7 @@ class _StartpageState extends State<Startpage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        title: Text("SmartTeacher"),
+        title: Text("SmartPhoneTeacher"),
         centerTitle: true,
         leading: Builder(
           builder: (BuildContext context){
