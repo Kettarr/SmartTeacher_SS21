@@ -88,7 +88,7 @@ int getRightAnswer(Question q, List<Answer> answerlist){
     }
   }
 
-  print("getrightanswerfail");
+ 
   return dummyreturn;
 }
 
@@ -100,20 +100,22 @@ List<Question> getRandomThreeQuestions(){
   List<Answer> allanswers = getAnswerList();
   List<Question> returnlist = [];
   
- 
+  //gets random questions and deletes the question from list after from questionlist
   for(int i=0; i<3; i++){
     int randint = random.nextInt(allquestions.length);
     returnlist.add(allquestions[randint]);
     allquestions.removeAt(randint);
   }
- 
+
+    //gets right answer - deletes right answer after from answerlist
     for(int i= 0; i<returnlist.length; i++){
       int rightanswerindex = getRightAnswer(returnlist[i], allanswers);
-      print("aindex "+rightanswerindex.toString());
       returnlist[i].answerlist.add(allanswers[rightanswerindex]);
       allanswers.removeAt(rightanswerindex);
     }
 
+
+    //gets random answer and adds it randomly in front or at end - deletes answer after form answerlist
     for(int i= 0; i<returnlist.length; i++){
       while(returnlist[i].answerlist.length<3){
         if(random.nextBool()){
@@ -125,7 +127,7 @@ List<Question> getRandomThreeQuestions(){
           returnlist[i].answerlist.insert(0, allanswers[randint]);
           allanswers.removeAt(randint);
         }
-        print(returnlist.length.toString());
+       
      }
     }
   

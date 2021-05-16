@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smartteacher/widgets/iconquiz.dart';
+import 'package:smartteacher/widgets/menu.dart';
 
 import 'model/Nachrichten.dart';
+import 'model/Telefonieren.dart';
 
 
 
@@ -70,6 +73,24 @@ class _StartpageState extends State<Startpage> {
       appBar: AppBar(
         title: Text("SmartTeacher"),
         centerTitle: true,
+        leading: Builder(
+          builder: (BuildContext context){
+            return IconButton(
+              tooltip: "Menü",
+              icon: Icon(Icons.menu, color: Colors.white,),
+              onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Menu()),
+                );
+              },
+
+            );
+          }
+        )
+        
+
+       
         
       ),
       body: Center(
@@ -85,14 +106,17 @@ class _StartpageState extends State<Startpage> {
                  
                  child: RaisedButton.icon(
                    
-                   onPressed:() {
-                        
+                    onPressed: () {
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Telefonieren()),   
+                        );                  
                    },
                    icon: Icon(Icons.phone, size: 30),
                    color: Colors.blue[100],
                    label: Text(
                      "Telefonieren", textScaleFactor: 1.5,
-                      )
+                      ),
                     
                    
                     
