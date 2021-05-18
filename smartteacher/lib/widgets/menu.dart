@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 
+
+
+
 class Menu extends StatefulWidget{
 
 
@@ -44,7 +47,7 @@ class _Menu extends State<Menu>{
                         content: SingleChildScrollView(
                           
                           child: TextField(
-                            
+                            decoration: new InputDecoration(labelText: "Schriftgröße eingeben"),
                             onSubmitted: (var value){
                               setState((){
                                  textscalefactor = double.parse(value)/10;
@@ -57,7 +60,9 @@ class _Menu extends State<Menu>{
                             },
                             keyboardType: TextInputType.number,
                             inputFormatters: <TextInputFormatter>[
-                              FilteringTextInputFormatter.digitsOnly
+                              FilteringTextInputFormatter.digitsOnly,
+                              FilteringTextInputFormatter.deny(RegExp(r'^[3-9]| 0 |\d{3}')),
+                              
                               ],
                             )
                             
