@@ -85,7 +85,7 @@ class _Menu extends State<Menu>{
                                   child: Text(examplestring, textScaleFactor: 1.7),
                                   onPressed: () { 
                                     setState(() {
-                                      fontsize = 2.0;
+                                      fontsize = 1.7;
                                     });
                                   }
                                 ),
@@ -101,7 +101,7 @@ class _Menu extends State<Menu>{
                                   child: Text(examplestring, textScaleFactor: 2.0),
                                   onPressed: () { 
                                     setState(() {
-                                      fontsize = 2.5;
+                                      fontsize = 2.0;
                                     });
                                   }
                                 ),
