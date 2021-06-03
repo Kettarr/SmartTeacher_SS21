@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 class EMail extends StatefulWidget {
+  double fontsize;
+  EMail({@required this.fontsize });
   @override
-  _EMailState createState() => _EMailState();
+  _EMailState createState() => _EMailState(fontsize: fontsize);
 }
 
 class _EMailState extends State<EMail> {
+  double fontsize;
+  _EMailState({@required this.fontsize});
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -16,14 +20,14 @@ class _EMailState extends State<EMail> {
         children: <Widget>[         
           Container(
             margin: EdgeInsets.all(15),                                               // Hilfreich war hier https://stackoverflow.com/questions/58278622/flutter-add-widgets-on-top-and-bottom-to-a-listview
-            height: 170,
             color: Colors.white,
             child: Center(
               child: Text(
                 "E-Mails werden für den digitalen Schriftverkehr verwendet. Vor dem Durchbruch der Mobiltelefone, wurden sie zum Kommunizieren mit Familie und Freunden verwendet. \n Heutzutage verwendet man sie eher um Dokumente zu versenden oder mit Firmen zu kommunizieren. ",
                 textAlign: TextAlign.center,
+                textScaleFactor: fontsize,
               style: TextStyle(
-                    fontSize: 17,
+                    
                     color: Colors.black,
                   ),  
               ),
@@ -36,14 +40,15 @@ class _EMailState extends State<EMail> {
           ),           
           Container(
             margin: EdgeInsets.all(15),               
-            height: 60,
+          
             color: Colors.white,
             child: Center(
               child: Text(
                 "Sie öffnen auf Ihrem Smartphone die E-Mail App, indem Sie auf folgendes Symbol drücken:",
                 textAlign: TextAlign.center,
+                textScaleFactor: fontsize,
               style: TextStyle(
-                    fontSize: 17,
+                    
                     color: Colors.black,
                     fontWeight: FontWeight.bold,                    
                   ),  
@@ -57,14 +62,15 @@ class _EMailState extends State<EMail> {
           ),   
           Container(
             margin: EdgeInsets.all(15),               
-            height: 100,
+           
             color: Colors.white,
             child: Center(
               child: Text(
                 "Tipp: Wenn Sie die E-Mail App zum ersten Mal öffnen, müssen Sie sich mit Ihrer E-Mail Adresse und Ihrem Passwort anmelden.",
                 textAlign: TextAlign.center,
+                textScaleFactor: fontsize-0.2,
               style: TextStyle(
-                    fontSize: 15,                  
+                              
                     color: Colors.black,
                   ),  
               ),

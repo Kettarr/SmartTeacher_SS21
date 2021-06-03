@@ -3,13 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:smartteacher/model/Question.dart';
 import 'package:smartteacher/widgets/quizend.dart';
 
+
+
+
+
 class Questionsite extends StatelessWidget {
 
   int rightquestions;
   int index;
   List<Question> questionlist;
+  double fontsize;
 
-  Questionsite({@required this.questionlist,@required this.index, @required this.rightquestions});
+  Questionsite({@required this.questionlist,@required this.index, @required this.rightquestions, @required this.fontsize});
 
   @override
   Widget build(BuildContext context){
@@ -31,7 +36,7 @@ class Questionsite extends StatelessWidget {
             SizedBox(height: 20),
             Container(
               margin: const EdgeInsets.all(15),
-              child: Text (questionlist[index].getQuestion(), textScaleFactor: 1.5),
+              child: Text (questionlist[index].getQuestion(), textScaleFactor: fontsize),
              
               
               ),
@@ -42,7 +47,7 @@ class Questionsite extends StatelessWidget {
               height: 80,
               child: RaisedButton(
               color: Colors.blue[100],
-              child: Text(questionlist[index].getAnswerList()[0].getAnswer(), textScaleFactor: 1.5),
+              child: Text(questionlist[index].getAnswerList()[0].getAnswer(), textScaleFactor: fontsize),
               onPressed: () { 
                 if(questionlist[index].getAnswerList()[0].isRight(questionlist[index])){
                   showDialog(
@@ -53,14 +58,14 @@ class Questionsite extends StatelessWidget {
                       content: SingleChildScrollView(
                       child: RaisedButton(
                         color: Colors.blue[100],
-                        child: Text("Weiter", textScaleFactor: 1.8,),
+                        child: Text("Weiter", textScaleFactor: fontsize,),
                         onPressed: () {
                         if(index==2){
                           Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => Quizend(rightanswers: ++rightquestions,)));
+                          builder: (context) => Quizend(rightanswers: ++rightquestions, fontsize: fontsize,)));
                         } else{ 
                         Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: ++rightquestions,)));
+                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: ++rightquestions, fontsize: fontsize,)));
                         }
                         },
 
@@ -79,14 +84,14 @@ class Questionsite extends StatelessWidget {
                       content: SingleChildScrollView(
                       child: RaisedButton(
                         color: Colors.blue[100],
-                        child: Text("Weiter", textScaleFactor: 1.8,),
+                        child: Text("Weiter", textScaleFactor: fontsize,),
                         onPressed: () {
                         if(index==2){
                           Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => Quizend(rightanswers: rightquestions,)));
+                          builder: (context) => Quizend(rightanswers: rightquestions,fontsize: fontsize,)));
                         } else{ 
                         Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: rightquestions,)));
+                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: rightquestions,fontsize: fontsize)));
                         }
                         },
 
@@ -114,7 +119,7 @@ class Questionsite extends StatelessWidget {
               height: 80,
               child: RaisedButton(
               color: Colors.blue[100],
-              child: Text(questionlist[index].getAnswerList()[1].getAnswer(), textScaleFactor: 1.5),
+              child: Text(questionlist[index].getAnswerList()[1].getAnswer(), textScaleFactor: fontsize),
                onPressed: () { 
                 if(questionlist[index].getAnswerList()[1].isRight(questionlist[index])){
                   showDialog(
@@ -125,14 +130,14 @@ class Questionsite extends StatelessWidget {
                       content: SingleChildScrollView(
                       child: RaisedButton(
                         color: Colors.blue[100],
-                        child: Text("Weiter", textScaleFactor: 1.8,),
+                        child: Text("Weiter", textScaleFactor: fontsize,),
                          onPressed: () {
                         if(index==2){
                           Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => Quizend(rightanswers: ++rightquestions,)));
+                          builder: (context) => Quizend(rightanswers: ++rightquestions,fontsize: fontsize,)));
                         } else{ 
                         Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: ++rightquestions,)));
+                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: ++rightquestions,fontsize: fontsize)));
                         }
                         },
 
@@ -151,14 +156,14 @@ class Questionsite extends StatelessWidget {
                       content: SingleChildScrollView(
                       child: RaisedButton(
                         color: Colors.blue[100],
-                        child: Text("Weiter", textScaleFactor: 1.8,),
+                        child: Text("Weiter", textScaleFactor: fontsize,),
                          onPressed: () {
                         if(index==2){
                           Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => Quizend(rightanswers: rightquestions,)));
+                          builder: (context) => Quizend(rightanswers: rightquestions, fontsize: fontsize,)));
                         } else{ 
                         Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: rightquestions,)));
+                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: rightquestions,fontsize: fontsize)));
                         }
                         },
 
@@ -186,7 +191,7 @@ class Questionsite extends StatelessWidget {
               height: 80,
               child: RaisedButton(
               color: Colors.blue[100],
-              child: Text(questionlist[index].getAnswerList()[2].getAnswer(), textScaleFactor: 1.5,),
+              child: Text(questionlist[index].getAnswerList()[2].getAnswer(), textScaleFactor: fontsize,),
                 onPressed: () { 
                 if(questionlist[index].getAnswerList()[2].isRight(questionlist[index])){
                   showDialog(
@@ -197,14 +202,14 @@ class Questionsite extends StatelessWidget {
                       content: SingleChildScrollView(
                       child: RaisedButton(
                         color: Colors.blue[100],
-                        child: Text("Weiter", textScaleFactor: 1.8,),
+                        child: Text("Weiter", textScaleFactor: fontsize,),
                          onPressed: () {
                         if(index==2){
                           Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => Quizend(rightanswers: ++rightquestions,)));
+                          builder: (context) => Quizend(rightanswers: ++rightquestions, fontsize: fontsize,)));
                         } else{ 
                         Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: ++rightquestions,)));
+                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: ++rightquestions,fontsize: fontsize)));
                         }
                         },
 
@@ -223,14 +228,14 @@ class Questionsite extends StatelessWidget {
                       content: SingleChildScrollView(
                       child: RaisedButton(
                         color: Colors.blue[100],
-                        child: Text("Weiter", textScaleFactor: 1.8,),
+                        child: Text("Weiter", textScaleFactor: fontsize,),
                        onPressed: () {
                         if(index==2){
                           Navigator.push(context, MaterialPageRoute(
-                          builder: (context) =>Quizend(rightanswers: rightquestions,)));
+                          builder: (context) =>Quizend(rightanswers: rightquestions, fontsize: fontsize,)));
                         } else{ 
                         Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: rightquestions,)));
+                        builder: (context) => Questionsite(questionlist : questionlist, index: ++index, rightquestions: rightquestions,fontsize: fontsize)));
                         }
                         },
 

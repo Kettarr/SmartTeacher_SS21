@@ -5,11 +5,15 @@ import 'Anrufen.dart';
 import 'AnrufTastatur.dart';
 
 class Telefonieren extends StatefulWidget {
+  double fontsize;
+  Telefonieren({@required this.fontsize});
   @override
-  _TelefonierenState createState() => _TelefonierenState();
+  _TelefonierenState createState() => _TelefonierenState(fontsize: fontsize);
 }
 
 class _TelefonierenState extends State<Telefonieren> {
+  double fontsize;
+  _TelefonierenState({@required this.fontsize});
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -26,12 +30,12 @@ class _TelefonierenState extends State<Telefonieren> {
                    onPressed: () {
                      Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => AnrufAnnehmen()),
+                        MaterialPageRoute(builder: (context) => AnrufAnnehmen(fontsize: fontsize,)),
                      );                       
                    },
                    color: Colors.blue[100],
                    child: Text(
-                     "Anruf annehmen", textScaleFactor: 1.5,
+                     "Anruf annehmen", textScaleFactor: fontsize,
                       )                                                           
                 ),    
               ),              
@@ -43,12 +47,12 @@ class _TelefonierenState extends State<Telefonieren> {
                    onPressed: () {
                      Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => AnrufAuflegen()),
+                        MaterialPageRoute(builder: (context) => AnrufAuflegen(fontsize: fontsize)),
                      );                     
                    },
                    color: Colors.blue[100],
                    child: Text(
-                     "Auflegen", textScaleFactor: 1.5,
+                     "Auflegen", textScaleFactor: fontsize,
                       )                                        
                 ),       
                 ), 
@@ -60,12 +64,12 @@ class _TelefonierenState extends State<Telefonieren> {
                    onPressed: () {
                      Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Anrufen()),
+                        MaterialPageRoute(builder: (context) => Anrufen(fontsize: fontsize)),
                      );
                    },
                    color: Colors.blue[100],
                    child: Text(
-                     "Jemanden anrufen", textScaleFactor: 1.5,
+                     "Jemanden anrufen", textScaleFactor: fontsize,
                       )                                                           
                 ),       
               ),
@@ -77,12 +81,12 @@ class _TelefonierenState extends State<Telefonieren> {
                    onPressed: () {
                      Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => AnrufTastatur()), 
+                        MaterialPageRoute(builder: (context) => AnrufTastatur(fontsize: fontsize)), 
                      );                    
                    },
                    color: Colors.blue[100],
                    child: Text(
-                     "Tastatur während Anruf", textScaleFactor: 1.5,
+                     "Tastatur während Anruf", textScaleFactor: fontsize,
                       )                                                           
                 ),    
               ),                                                                        

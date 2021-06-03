@@ -139,8 +139,12 @@ List<Question> getRandomThreeQuestions(){
 
 class Iconquiz extends StatelessWidget {
 
+
+  double fontsize;
   int index = 0;
   List<Question> questionlist = getRandomThreeQuestions();
+
+  Iconquiz({@required this.fontsize});
 
   @override
   Widget build(BuildContext context){
@@ -156,7 +160,7 @@ class Iconquiz extends StatelessWidget {
           Container(
             margin: const EdgeInsets.all(15),
             child: Text("In diesem Quiz werden wir Ihnen Bilder - so genannte Icons - zeigen und Sie können tippen welche Bedeutung das jeweilige Icon hat.",
-          textScaleFactor: 1.5)
+          textScaleFactor: fontsize)
           ),
           SizedBox(height: 140),
           Container(
@@ -165,10 +169,10 @@ class Iconquiz extends StatelessWidget {
 
             child: RaisedButton(
              color: Colors.blue[100],
-             child: Text("Start!", textScaleFactor: 1.8,),
+             child: Text("Start!", textScaleFactor: fontsize,),
              onPressed: () { 
                Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => Questionsite(questionlist : questionlist, index: index, rightquestions: 0,)));
+                    builder: (context) => Questionsite(questionlist : questionlist, index: index, rightquestions: 0, fontsize: fontsize,)));
             },
 
           ),

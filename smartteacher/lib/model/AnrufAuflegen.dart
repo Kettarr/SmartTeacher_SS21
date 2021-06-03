@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 class AnrufAuflegen extends StatefulWidget {
+  double fontsize;
+  AnrufAuflegen({@required this.fontsize});
   @override
-  _AnrufAuflegenState createState() => _AnrufAuflegenState();
+  _AnrufAuflegenState createState() => _AnrufAuflegenState(fontsize: fontsize);
 }
 
 class _AnrufAuflegenState extends State<AnrufAuflegen> {
+  double fontsize;
+  _AnrufAuflegenState({@required this.fontsize});
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -16,14 +20,15 @@ class _AnrufAuflegenState extends State<AnrufAuflegen> {
         children: <Widget>[           
           Container(
             margin: EdgeInsets.all(15),    
-            height: 80,
+            
             color: Colors.white,
             child: Center(
               child: Text(
                 "Einen Anruf kann man einfach beenden, indem man das rote Telefonsymbol drückt.",
                 textAlign: TextAlign.center,
+                textScaleFactor: fontsize,
               style: TextStyle(
-                    fontSize: 17,
+                   
                     color: Colors.black,
                   ),  
               ),

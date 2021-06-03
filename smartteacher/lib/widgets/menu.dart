@@ -4,67 +4,113 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:smartteacher/main.dart';
 
 
 
 
 
 class Menu extends StatefulWidget{
+  Menu({Key key, @required this.fontsize});
 
+  double fontsize;
 
   @override
-  _Menu createState() => _Menu();
+  _Menu createState() => _Menu( fontsize: fontsize);
 }
 
 
 
 
 class _Menu extends State<Menu>{
+  String examplestring = "aktuelle Größe";
+  double fontsize;
 
-  
-  double textscalefactor = 1.5;
+  _Menu({@required this.fontsize});
+
+  get onWillPop => null;
   
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+
+      return Scaffold(
        appBar: AppBar(
         title: Text("Menü"),
         centerTitle: true,
       ),
-      body:Builder(
-        builder: (BuildContext context){
-          return ListView(
+      body: WillPopScope(
+        onWillPop:(){
+          Navigator.pop(context, fontsize);
+          return new Future(() => false);
+        },
+       
+        child:(
+          ListView(
             children: [
               SizedBox(height: 50),
               ListTile(
-                leading: Text("Schriftgröße", textScaleFactor: textscalefactor,),
+                leading: Text("Schriftgröße", textScaleFactor: fontsize),
                 trailing: TextButton(
-                  child: Text((textscalefactor*10).toString(), textScaleFactor: textscalefactor,),
+                  child: Text(examplestring, textScaleFactor: fontsize,),
                   onPressed: () {
                     showDialog(context: context, builder: (context){
                       return AlertDialog(
                         content: SingleChildScrollView(
-                          
-                          child: TextField(
-                            decoration: new InputDecoration(labelText: "Schriftgröße eingeben"),
-                            onSubmitted: (var value){
-                              setState((){
-                                 textscalefactor = double.parse(value)/10;
-                              });
-                            Navigator.pop(context);
-                                
-                                
-                              
+                          child: Column(
+                            children: [
+                              SizedBox(height: 20),
+                              Container(
+                                margin: EdgeInsets.all(10),
+                                width: 250,
+                                height: 80,
+                                child: RaisedButton(
+                                  color: Colors.blue[100],
+                                  child: Text(examplestring, textScaleFactor: 1.5),
+                                  onPressed: () { 
+                                    setState(() {
+                                      fontsize = 1.5;
+                                    });
+                                  }
+                                ),
 
-                            },
-                            keyboardType: TextInputType.number,
-                            inputFormatters: <TextInputFormatter>[
-                              FilteringTextInputFormatter.digitsOnly,
-                              FilteringTextInputFormatter.deny(RegExp(r'^[3-9]| 0 |\d{3}')),
-                              
-                              ],
-                            )
+                               ),
+                               SizedBox(height: 20),
+                               Container(
+                                margin: EdgeInsets.all(10),
+                                width: 250,
+                                height: 80,
+                                child: RaisedButton(
+                                  color: Colors.blue[100],
+                                  child: Text(examplestring, textScaleFactor: 1.7),
+                                  onPressed: () { 
+                                    setState(() {
+                                      fontsize = 2.0;
+                                    });
+                                  }
+                                ),
+
+                               ),
+                               SizedBox(height: 20),
+                               Container(
+                                margin: EdgeInsets.all(10),
+                                width: 250,
+                                height: 80,
+                                child: RaisedButton(
+                                  color: Colors.blue[100],
+                                  child: Text(examplestring, textScaleFactor: 2.0),
+                                  onPressed: () { 
+                                    setState(() {
+                                      fontsize = 2.5;
+                                    });
+                                  }
+                                ),
+
+                               ),
+                            ],
+                            
+                          )
+                          
                             
                             
                           ),
@@ -77,20 +123,22 @@ class _Menu extends State<Menu>{
                   },
                 ),
               ),
-              ListTile(
 
-              ),
             ],
 
 
-          );
+          )
 
+        )
 
-        }
+        
        
       
       ),
-    );
+      );
+  
+      
+   
   }
 
 

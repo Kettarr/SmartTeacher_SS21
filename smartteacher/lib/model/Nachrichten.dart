@@ -8,11 +8,19 @@ import 'EMail.dart';
 import 'EMailVerfassen.dart';
 
 class Nachrichten extends StatefulWidget {
+  Nachrichten({@required this.fontsize});
+  double fontsize;
+
   @override
-  _NachrichtenState createState() => _NachrichtenState();
+  _NachrichtenState createState() => _NachrichtenState(fontsize: fontsize);
 }
 
 class _NachrichtenState extends State<Nachrichten> {
+
+  double fontsize;
+
+  _NachrichtenState({@required this.fontsize});
+  
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -29,12 +37,12 @@ class _NachrichtenState extends State<Nachrichten> {
                    onPressed: () {
                      Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Sms()),
+                        MaterialPageRoute(builder: (context) => Sms(fontsize: fontsize)),
                      );                       
                    },
                    color: Colors.blue[100],
                    child: Text(
-                     "Was ist eine SMS?", textScaleFactor: 1.5,
+                     "Was ist eine SMS?", textScaleFactor: fontsize,
                       )                                                           
                 ),    
               ),              
@@ -46,12 +54,12 @@ class _NachrichtenState extends State<Nachrichten> {
                    onPressed: () {
                      Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SmsVerfassen()),
+                        MaterialPageRoute(builder: (context) => SmsVerfassen(fontsize: fontsize)),
                      );                     
                    },
                    color: Colors.blue[100],
                    child: Text(
-                     "Eine SMS verfassen", textScaleFactor: 1.5,
+                     "Eine SMS verfassen", textScaleFactor: fontsize,
                       )                                        
                 ),       
                 ), 
@@ -63,12 +71,12 @@ class _NachrichtenState extends State<Nachrichten> {
                    onPressed: () {
                      Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => WhatsApp()),
+                        MaterialPageRoute(builder: (context) => WhatsApp(fontsize: fontsize)),
                      );
                    },
                    color: Colors.blue[100],
                    child: Text(
-                     "Was ist WhatsApp?", textScaleFactor: 1.5,
+                     "Was ist WhatsApp?", textScaleFactor: fontsize,
                       )                                                           
                 ),       
               ),
@@ -80,12 +88,12 @@ class _NachrichtenState extends State<Nachrichten> {
                    onPressed: () {
                      Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => WhatsAppNachrichten()), 
+                        MaterialPageRoute(builder: (context) => WhatsAppNachrichten(fontsize: fontsize)), 
                      );                    
                    },
                    color: Colors.blue[100],
                    child: Text(
-                     "Nachrichten in WhatsApp", textScaleFactor: 1.5,
+                     "Nachrichten in WhatsApp", textScaleFactor: fontsize,
                       )                                                           
                 ),    
               ),  
@@ -97,12 +105,12 @@ class _NachrichtenState extends State<Nachrichten> {
                    onPressed: () {
                      Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => WhatsAppBilder()),
+                        MaterialPageRoute(builder: (context) => WhatsAppBilder(fontsize: fontsize)),
                      );                   
                    },
                    color: Colors.blue[100],
                    child: Text(
-                     "Bilder in WhatsApp versenden", textScaleFactor: 1.5,
+                     "Bilder in WhatsApp versenden", textScaleFactor: fontsize,
                       )                                                           
                 ),    
               ),  
@@ -114,12 +122,12 @@ class _NachrichtenState extends State<Nachrichten> {
                    onPressed: () {
                      Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => EMail()),
+                        MaterialPageRoute(builder: (context) => EMail(fontsize: fontsize)),
                      );
                    },
                    color: Colors.blue[100],
                    child: Text(
-                     "Was ist eine E-Mail?", textScaleFactor: 1.5,
+                     "Was ist eine E-Mail?", textScaleFactor: fontsize,
                       )                                                           
                 ),       
               ),
@@ -131,12 +139,12 @@ class _NachrichtenState extends State<Nachrichten> {
                    onPressed: () {
                      Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => EMailVerfassen()),
+                        MaterialPageRoute(builder: (context) => EMailVerfassen(fontsize: fontsize)),
                      );
                    },
                    color: Colors.blue[100],
                    child: Text(
-                     "E-Mail versenden", textScaleFactor: 1.5,
+                     "E-Mail versenden", textScaleFactor: fontsize,
                       )                                                           
                   ),       
             ),                                                                        

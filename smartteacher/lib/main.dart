@@ -19,6 +19,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
+    
+
     return MaterialApp(
       title: 'Smart Phone Teacher',
       theme: ThemeData(
@@ -33,13 +36,16 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Startpage(),
+      home: Startpage(fontsize: 1.5,),
     );
   }
 }
 
+// ignore: must_be_immutable
 class Startpage extends StatefulWidget {
-  Startpage({Key key}) : super(key: key);
+  Startpage({Key key, @required this.fontsize}) : super(key: key);
+  double fontsize = 1.5;
+
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -53,13 +59,15 @@ class Startpage extends StatefulWidget {
 
 
   @override
-  _StartpageState createState() => _StartpageState();
+  _StartpageState createState( ) => _StartpageState(fontsize: fontsize);
 }
 
 class _StartpageState extends State<Startpage> {
  
 
-  
+  double fontsize;
+
+  _StartpageState({@required this.fontsize});
   
 
   @override
@@ -79,11 +87,14 @@ class _StartpageState extends State<Startpage> {
             return IconButton(
               tooltip: "Menü",
               icon: Icon(Icons.menu, color: Colors.white,),
-              onPressed: (){
-                Navigator.push(
+              onPressed: () async {
+                var result = await Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Menu()),
+                  MaterialPageRoute(builder: (context) => Menu(fontsize: fontsize)),
                 );
+                setState(() {
+                  fontsize = result;
+                });
               },
 
             );
@@ -110,13 +121,13 @@ class _StartpageState extends State<Startpage> {
                     onPressed: () {
                         Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Telefonieren()),   
+                        MaterialPageRoute(builder: (context) => Telefonieren(fontsize: fontsize)),   
                         );                  
                    },
                    icon: Icon(Icons.phone, size: 30),
                    color: Colors.blue[100],
                    label: Text(
-                     "Telefonieren", textScaleFactor: 1.5,
+                     "Telefonieren", textScaleFactor: fontsize,
                       ),
                     
                    
@@ -136,13 +147,13 @@ class _StartpageState extends State<Startpage> {
                    onPressed: () {
                      Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Nachrichten()),
+                        MaterialPageRoute(builder: (context) => Nachrichten(fontsize: fontsize,)),
                      );
                    },
                    icon: Icon(Icons.message, size: 30),
                    color: Colors.blue[100],
                    label: Text(
-                     "Nachrichten", textScaleFactor: 1.5,
+                     "Nachrichten", textScaleFactor: fontsize,
                       )
                     
                    
@@ -159,13 +170,13 @@ class _StartpageState extends State<Startpage> {
                    onPressed:() {
                         Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Iconquiz()),
+                        MaterialPageRoute(builder: (context) => Iconquiz(fontsize: fontsize,)),
                         );
                    },
                    icon: Icon(Icons.contact_support, size: 30),
                    color: Colors.blue[100],
                    label: Text(
-                     "Icon Quiz", textScaleFactor: 1.5,
+                     "Icon Quiz", textScaleFactor: fontsize,
                       )
                     
                    
@@ -182,13 +193,13 @@ class _StartpageState extends State<Startpage> {
                    onPressed: () {
                      Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Begriffserklaerung()),
+                        MaterialPageRoute(builder: (context) => Begriffserklaerung(fontsize: fontsize)),
                      );
                    },
                    
                    color: Colors.blue[100],
                    child: Text(
-                     "Begriffserklärung", textScaleFactor: 1.5,
+                     "Begriffserklärung", textScaleFactor: fontsize,
                       )
                     
                    

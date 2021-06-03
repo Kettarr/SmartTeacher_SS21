@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 class WhatsAppBilder extends StatefulWidget {
+  double fontsize;
+  WhatsAppBilder({@required this.fontsize});
   @override
-  _WhatsAppBilderState createState() => _WhatsAppBilderState();
+  _WhatsAppBilderState createState() => _WhatsAppBilderState(fontsize: fontsize);
 }
 
 class _WhatsAppBilderState extends State<WhatsAppBilder> {
+  double fontsize;
+  _WhatsAppBilderState({@required this.fontsize});
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -20,14 +24,15 @@ class _WhatsAppBilderState extends State<WhatsAppBilder> {
           ),             
           Container(
             margin: EdgeInsets.all(15),               
-            height: 110,
+         
             color: Colors.white,
             child: Center(
               child: Text(
                 "Wie bereits erwähnt, können in WhatsApp auch problemlos Bilder geteilt werden. \n Dazu öffnen Sie zuerst den Nachrichtenverlauf (auch Chat genannt) mit dem/der gewünschten Empfänger/in.",
                 textAlign: TextAlign.center,
+                textScaleFactor: fontsize,
               style: TextStyle(
-                    fontSize: 17,                  
+                                      
                     color: Colors.black,
                   ),  
               ),
@@ -35,14 +40,15 @@ class _WhatsAppBilderState extends State<WhatsAppBilder> {
           ), 
           Container(
             margin: EdgeInsets.all(15),               
-            height: 40,
+          
             color: Colors.white,
             child: Center(
               child: Text(
                 "Anschließend drücken Sie rechts neben dem Textfeld auf das Kamera Symbol:",
                 textAlign: TextAlign.center,
+                textScaleFactor: fontsize,
               style: TextStyle(
-                    fontSize: 17,                  
+                                      
                     color: Colors.black,
                     fontWeight: FontWeight.bold,                    
                   ),  
@@ -56,14 +62,15 @@ class _WhatsAppBilderState extends State<WhatsAppBilder> {
           ),           
           Container(
             margin: EdgeInsets.all(15),               
-            height: 20,
+           
             color: Colors.white,
             child: Center(
               child: Text(
                 "Nun sehen Sie die Vorschau der Kamera.",
                 textAlign: TextAlign.center,
+                textScaleFactor: fontsize,
               style: TextStyle(
-                    fontSize: 17,                  
+                                      
                     color: Colors.black,
                   ),  
               ),
@@ -76,14 +83,15 @@ class _WhatsAppBilderState extends State<WhatsAppBilder> {
           ),           
           Container(
             margin: EdgeInsets.all(15),               
-            height: 150,
+           
             color: Colors.white,
             child: Center(
               child: Text(
                 "Wenn Sie das gewünschte Motiv im Bild haben, müssen Sie auf den Kreis unten in der Mitte drücken, um ein Foto zu machen. \n Wenn Sie mit dem Ergebnis zufrieden sind, können Sie es wie bei den Nachrichten mit dem Pfeil versenden.",
                 textAlign: TextAlign.center,
+                textScaleFactor: fontsize,
               style: TextStyle(
-                    fontSize: 17,                  
+                                      
                     color: Colors.black,
                   ),  
               ),
@@ -91,14 +99,15 @@ class _WhatsAppBilderState extends State<WhatsAppBilder> {
           ),  
           Container(
             margin: EdgeInsets.all(15),               
-            height: 90,
+           
             color: Colors.white,
             child: Center(
               child: Text(
                 "Tipp: Sie können auch ein bereits aufgenommenes Foto versenden, indem Sie auf die Büroklammer drücken. Mit der Kamera mit den Pfeilen rechts vom Auslöser können Sie zur vorderen Kamera wechseln.",
                 textAlign: TextAlign.center,
+                textScaleFactor: fontsize-0.2,
               style: TextStyle(
-                    fontSize: 15,                  
+                                  
                     color: Colors.black,
                   ),  
               ),

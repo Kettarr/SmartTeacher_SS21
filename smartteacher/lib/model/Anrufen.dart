@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 class Anrufen extends StatefulWidget {
+  double fontsize;
+  Anrufen({@required this.fontsize});
   @override
-  _AnrufenState createState() => _AnrufenState();
+  _AnrufenState createState() => _AnrufenState(fontsize: fontsize);
 }
 
 class _AnrufenState extends State<Anrufen> {
+  double fontsize;
+  _AnrufenState({@required this.fontsize});
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -16,14 +20,15 @@ class _AnrufenState extends State<Anrufen> {
         children: <Widget>[         
           Container(
             margin: EdgeInsets.all(15), 
-            height: 120,
+           
             color: Colors.white,
             child: Center(
               child: Text(
                 "Um eine Person anzurufen, muss man in den Kontakten die gewünschte Nummer wählen. Dabei sucht man den Namen und streicht diesen von links nach rechts. Dabei wird der Name grün hinterlegt.",
                 textAlign: TextAlign.center,
+                textScaleFactor: fontsize,
               style: TextStyle(
-                    fontSize: 17,
+                   
                     color: Colors.black,
                   ),  
               ),
@@ -42,8 +47,9 @@ class _AnrufenState extends State<Anrufen> {
               child: Text(
                 "Eine weitere Möglichkeit ist, über die Information des Kontakts jemanden anzurufen. Dabei tippt man auf den Kontakt und kommt auf eine nähere Ansicht des Kontakts. Dort gibt es unter dem Namen und der Telefonnummer ein grünes Telefonsymbol. Wenn man auf dieses drückt, ruft man die gewünschte Person an.",
                 textAlign: TextAlign.center,
+                textScaleFactor: fontsize,
               style: TextStyle(
-                    fontSize: 17,
+                  
                     color: Colors.black,                  
                   ),  
               ),
@@ -56,14 +62,15 @@ class _AnrufenState extends State<Anrufen> {
           ),
           Container(
             margin: EdgeInsets.all(15),               
-            height: 90,
+           
             color: Colors.white,
             child: Center(
               child: Text(
                 "Tipp: Sie können natürlich auch direkt eine Telefonnummer wählen und anrufen, ohne sie bei den Kontakten eingespeichert zu haben. Dazu tippen Sie die Nummer in der Telefon App ein und klicken auf das grüne Telefonsymbol.",
                 textAlign: TextAlign.center,
+                textScaleFactor: fontsize-0.2,
               style: TextStyle(
-                    fontSize: 15,                  
+                             
                     color: Colors.black,
                   ),  
               ),

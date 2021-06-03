@@ -11,8 +11,9 @@ import 'iconquiz.dart';
 class Quizend extends StatelessWidget{
 
     int rightanswers;
+    double fontsize;
 
-    Quizend({@required this.rightanswers});
+    Quizend({@required this.rightanswers, @required this.fontsize});
 
   
   @override
@@ -29,25 +30,25 @@ class Quizend extends StatelessWidget{
             Container(
             margin: const EdgeInsets.all(15),
             child: Text("Sie haben "+rightanswers.toString()+" von 3 Fragen korrekt beantwortet.",
-            textScaleFactor: 1.5, textAlign: TextAlign.center,),
+            textScaleFactor: fontsize, textAlign: TextAlign.center,),
             ),
             SizedBox(height: 80),
             RaisedButton(
-              child: Text("Nochmal versuchen!", textScaleFactor: 1.5,),
+              child: Text("Nochmal versuchen!", textScaleFactor: fontsize,),
               color: Colors.blue[100],
               onPressed: () {
                  Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => Iconquiz()));
+                          builder: (context) => Iconquiz(fontsize: fontsize)));
               },
               
             ),
             SizedBox(height: 30),
             RaisedButton(
-              child: Text("Zurück zur Startseite", textScaleFactor: 1.5,),
+              child: Text("Zurück zur Startseite", textScaleFactor: fontsize,),
               color: Colors.blue[100],
               onPressed: () {
                  Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => MyApp()));
+                          builder: (context) => Startpage(fontsize: fontsize,)));
               },
               
             ),
