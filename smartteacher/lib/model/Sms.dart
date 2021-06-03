@@ -26,7 +26,7 @@ class _SmsState extends State<Sms> {
           ),             
           Container(
             margin: EdgeInsets.all(15),                                               // Hilfreich war hier https://stackoverflow.com/questions/58278622/flutter-add-widgets-on-top-and-bottom-to-a-listview
-            height: 240,
+           
             color: Colors.white,
             child: Center(
               child: Text(
