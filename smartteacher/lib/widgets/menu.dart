@@ -71,6 +71,7 @@ class _Menu extends State<Menu>{
                                     setState(() {
                                       fontsize = 1.5;
                                     });
+                                    Navigator.pop(context);
                                   }
                                 ),
 
@@ -87,6 +88,7 @@ class _Menu extends State<Menu>{
                                     setState(() {
                                       fontsize = 1.7;
                                     });
+                                    Navigator.pop(context);
                                   }
                                 ),
 
@@ -103,10 +105,12 @@ class _Menu extends State<Menu>{
                                     setState(() {
                                       fontsize = 2.0;
                                     });
+                                    Navigator.pop(context);
                                   }
                                 ),
 
                                ),
+                              
                             ],
                             
                           )
