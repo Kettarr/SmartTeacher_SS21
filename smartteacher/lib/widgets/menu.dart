@@ -20,11 +20,24 @@ class Menu extends StatefulWidget{
 }
 
 
+String getString(fontsize){
+  String result = "no fontsize found";
+  if(fontsize == 1.5)
+    result = "klein";
+    if(fontsize == 1.7)
+    result = "mittel";
+    if(fontsize == 2.0)
+    result = "groß";
+  
+  return result;
+}
+
 
 
 class _Menu extends State<Menu>{
-  String examplestring = "aktuelle Größe";
+  
   double fontsize;
+  
 
   _Menu({@required this.fontsize});
 
@@ -36,7 +49,6 @@ class _Menu extends State<Menu>{
 
       return Scaffold(
        appBar: AppBar(
-        title: Text("Menü"),
         centerTitle: true,
       ),
       body: WillPopScope(
@@ -52,7 +64,7 @@ class _Menu extends State<Menu>{
               ListTile(
                 leading: Text("Schriftgröße", textScaleFactor: fontsize),
                 trailing: TextButton(
-                  child: Text(examplestring, textScaleFactor: fontsize,),
+                  child: Text(getString(fontsize), textScaleFactor: fontsize,),
                   onPressed: () {
                     showDialog(context: context, builder: (context){
                       return AlertDialog(
@@ -66,7 +78,7 @@ class _Menu extends State<Menu>{
                                 height: 80,
                                 child: RaisedButton(
                                   color: Colors.blue[100],
-                                  child: Text(examplestring, textScaleFactor: 1.5),
+                                  child: Text(getString(1.5), textScaleFactor: 1.5),
                                   onPressed: () { 
                                     setState(() {
                                       fontsize = 1.5;
@@ -83,7 +95,7 @@ class _Menu extends State<Menu>{
                                 height: 80,
                                 child: RaisedButton(
                                   color: Colors.blue[100],
-                                  child: Text(examplestring, textScaleFactor: 1.7),
+                                  child: Text(getString(1.7), textScaleFactor: 1.7),
                                   onPressed: () { 
                                     setState(() {
                                       fontsize = 1.7;
@@ -100,7 +112,7 @@ class _Menu extends State<Menu>{
                                 height: 80,
                                 child: RaisedButton(
                                   color: Colors.blue[100],
-                                  child: Text(examplestring, textScaleFactor: 2.0),
+                                  child: Text(getString(2.0), textScaleFactor: 2.0),
                                   onPressed: () { 
                                     setState(() {
                                       fontsize = 2.0;

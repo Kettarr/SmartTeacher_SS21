@@ -86,7 +86,7 @@ class _StartpageState extends State<Startpage> {
           builder: (BuildContext context){
             return IconButton(
               tooltip: "Menü",
-              icon: Icon(Icons.menu, color: Colors.white,),
+              icon: Icon(Icons.text_fields, color: Colors.white,),
               onPressed: () async {
                 var result = await Navigator.push(
                   context,
