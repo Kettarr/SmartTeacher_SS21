@@ -82,28 +82,6 @@ class _StartpageState extends State<Startpage> {
       appBar: AppBar(
         title: Text("SmartPhoneTeacher"),
         centerTitle: true,
-        leading: Builder(
-          builder: (BuildContext context){
-            return IconButton(
-              tooltip: "Menü",
-              icon: Icon(Icons.text_fields, color: Colors.white,),
-              onPressed: () async {
-                var result = await Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Menu(fontsize: fontsize)),
-                );
-                setState(() {
-                  fontsize = result;
-                });
-              },
-
-            );
-          }
-        )
-        
-
-       
-        
       ),
       body: Center(
         child: Column(
@@ -204,18 +182,37 @@ class _StartpageState extends State<Startpage> {
                     
                    
                     
-                ),       
+                ),   
+
+              
               ),
-          
+             
+                
                 
 
 
           ],  
         ),
         
+      
         
       ),
-     
+      floatingActionButton:  FloatingActionButton(
+                child: Text('Menü'),
+             
+                onPressed: () async {
+                var result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Menu(fontsize: fontsize)),
+                );
+                setState(() {
+                  fontsize = result;
+                });
+              },
+
+            
+               
+             ),
     );
   }
 }

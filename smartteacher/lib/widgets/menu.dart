@@ -62,11 +62,11 @@ class _Menu extends State<Menu>{
             children: [
               SizedBox(height: 50),
               ListTile(
-                leading: Text("Schriftgröße", textScaleFactor: fontsize),
-                trailing: TextButton(
-                  child: Text(getString(fontsize), textScaleFactor: fontsize,),
-                  onPressed: () {
-                    showDialog(context: context, builder: (context){
+                 leading: Text("Schriftgröße", textScaleFactor: fontsize,),
+                 
+                trailing:Text(getString(fontsize), textScaleFactor: fontsize, style: TextStyle(color:Colors.blue ),),
+                onTap: () {
+                   showDialog(context: context, builder: (context){
                       return AlertDialog(
                         content: SingleChildScrollView(
                           child: Column(
@@ -132,12 +132,13 @@ class _Menu extends State<Menu>{
                           ),
                         );
 
+                },
+                );
+                }
+                 
                       
 
-                    },
-                    );
-                  },
-                ),
+                
               ),
 
             ],
