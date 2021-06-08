@@ -46,7 +46,7 @@ class _SmsState extends State<Sms> {
           ),
           Container(
             margin: EdgeInsets.all(15),               
-            height: 100,
+           
             color: Colors.white,
             child: Center(
               child: Text(
