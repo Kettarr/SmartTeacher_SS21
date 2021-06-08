@@ -62,6 +62,7 @@ class _Menu extends State<Menu>{
             children: [
               SizedBox(height: 50),
               ListTile(
+                  tileColor: Colors.blue[100],
                  leading: Text("Schriftgröße", textScaleFactor: fontsize,),
                  
                 trailing:Text(getString(fontsize), textScaleFactor: fontsize, style: TextStyle(color:Colors.blue ),),
@@ -122,7 +123,11 @@ class _Menu extends State<Menu>{
                                 ),
 
                                ),
-                              
+                               SizedBox(height: 20),
+                              Container(
+                                child: Text("Tipp: Auf die gewünschte Größe drücken.", textScaleFactor: fontsize-0.2, textAlign: TextAlign.center,)
+                                
+                              )
                             ],
                             
                           )
@@ -137,9 +142,16 @@ class _Menu extends State<Menu>{
                 }
                  
                       
-
+          
                 
               ),
+              SizedBox(height: 20),
+              Container(
+                padding: EdgeInsets.all(12),
+                child: Text("Tipp: Um die Schriftgröße zu ändern drücken Sie auf das hellblaue Feld mit der Beschriftung Schriftgröße.",
+                 textScaleFactor: fontsize-0.2,)
+
+              )
 
             ],
 

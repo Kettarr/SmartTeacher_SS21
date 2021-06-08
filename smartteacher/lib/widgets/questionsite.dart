@@ -1,10 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smartteacher/main.dart';
 import 'package:smartteacher/model/Question.dart';
+import 'package:smartteacher/widgets/iconquiz.dart';
 import 'package:smartteacher/widgets/quizend.dart';
 
 
+String getRightAnswer(List<Question> questionlist, index){
+  String retstring= "";
 
+  for(int i = 0; i<3; i++){
+    if(questionlist[index].getAnswerList()[i].isRight(questionlist[index]))
+      retstring = questionlist[index].getAnswerList()[i].getAnswer();
+
+  }
+
+
+  return retstring;
+
+}
 
 
 class Questionsite extends StatelessWidget {
@@ -20,6 +34,13 @@ class Questionsite extends StatelessWidget {
   Widget build(BuildContext context){
     return Scaffold(
        appBar: AppBar(
+         leading: IconButton(icon: Icon(Icons.arrow_back, color: Colors.white,),
+         onPressed: (){Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => Startpage( fontsize: fontsize,)));
+         },
+         ),
+         
+                          
         title: Text("Frage "+(index+1).toString()),
         centerTitle: true,
       ), 
@@ -80,7 +101,7 @@ class Questionsite extends StatelessWidget {
                     context: context,
                     builder: (context) {
                       return AlertDialog(
-                      title: Text("Das ist leider falsch..."),
+                      title: Text("Das ist leider falsch. Richtig wäre: "+getRightAnswer(questionlist, index)),
                       content: SingleChildScrollView(
                       child: RaisedButton(
                         color: Colors.blue[100],
@@ -152,7 +173,7 @@ class Questionsite extends StatelessWidget {
                     context: context,
                     builder: (context) {
                       return AlertDialog(
-                      title: Text("Das ist leider falsch..."),
+                      title: Text("Das ist leider falsch. Richtig wäre: "+getRightAnswer(questionlist, index)),
                       content: SingleChildScrollView(
                       child: RaisedButton(
                         color: Colors.blue[100],
@@ -224,7 +245,7 @@ class Questionsite extends StatelessWidget {
                     context: context,
                     builder: (context) {
                       return AlertDialog(
-                      title: Text("Das ist leider falsch..."),
+                      title: Text("Das ist leider falsch. Richtig wäre: "+getRightAnswer(questionlist, index)),
                       content: SingleChildScrollView(
                       child: RaisedButton(
                         color: Colors.blue[100],
