@@ -41,7 +41,6 @@ class _AnrufenState extends State<Anrufen> {
           ),            
           Container(
             margin: EdgeInsets.all(15),               
-            height: 170,
             color: Colors.white,
             child: Center(
               child: Text(
